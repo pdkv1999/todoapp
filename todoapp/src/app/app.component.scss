@@ -1,0 +1,49 @@
+.custom-field {
+  width: 50%;
+}
+
+.table-vertical-align {
+  vertical-align: middle;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.todo-completed-container {
+  display: flex;
+  align-items: center;
+}
+
+.todo-completed-container label {
+  margin-right: 5px;
+}
+
+.submit-button {
+  margin-left: 400px; 
+}
+
+.search-and-pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top : 20px;
+  margin-bottom: 0px;
+}
+
+.search-bar {
+  width: 300px;
+  margin-right: 50px;
+}
+
+.paginator {
+  flex: 1;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 2px 0;
+}

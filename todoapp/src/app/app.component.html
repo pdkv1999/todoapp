@@ -1,0 +1,86 @@
+<div class="container">
+  <mat-card>
+      <mat-card-header>
+        <mat-card-title>Create Todo</mat-card-title>
+      </mat-card-header>
+    
+      <form [formGroup]="todoFormGroup" (ngSubmit)="onSubmit()">
+        <table class="table" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="custom-field">
+                <mat-label>Todo Name</mat-label>
+                <input matInput formControlName = "name"/>
+                <mat-error>Required field</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field class="custom-field">
+                <mat-label>Todo Description</mat-label>
+                <textarea matInput formControlName = "description"></textarea>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="todo-completed-container">
+              <label>Todo Completed?</label>
+              <mat-checkbox formControlName="completed" name="completed"></mat-checkbox>
+              <button class="submit-button" mat-raised-button color="primary" type="submit">{{ isEditMode ? "Update" : "Create" }}</button>
+            </div>
+            </td>
+          </tr>
+
+        </table>
+      </form>
+    </mat-card>
+
+
+    <div class="search-and-pagination-container">
+      <mat-form-field class="search-bar">
+        <mat-label>Search Tasks</mat-label>
+        <input [formControl]="searchText" name="searchText" matInput placeholder="Search by todo name" />
+      </mat-form-field>
+      
+      <nav class="paginator-container">
+        <mat-paginator [length]="totalTodos" [pageSize]="todoPageSize" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)">
+        </mat-paginator>
+      </nav>
+    </div>
+    
+    <table class="table mt-1" matSort (matSortChange)="sortData($event)">
+      <thead>
+        <tr>
+          <th mat-sort-header="completed" scope="col">Status</th>
+          <th mat-sort-header="name" scope="col">Task Name</th>
+          <th scope="col">Task Description</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor = "let todo of allTodos">
+          <td class="col-md-1">
+            <mat-checkbox [checked]="todo.completed" disabled name="completed"></mat-checkbox>
+          </td>
+          <td class="col-md-4">{{todo.name}}</td>
+          <td class="col-md-4">{{todo.description}}</td>
+          <td class="col-md-2">
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="updateTodo(todo)">
+              <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click) = deleteTodo(todo.id)>
+              <mat-icon color="accent" aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+</div>
+  
+<router-outlet />
+
