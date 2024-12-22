@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories
-public class TodoappBackendAkhilApplication {
+public class TodoappBackendDileepApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(TodoappBackendAkhilApplication.class, args);
+		SpringApplication.run(TodoappBackendDileepApplication.class, args);
 	}
 }

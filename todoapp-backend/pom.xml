@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>todoapp-backend-akhil</artifactId>
+	<artifactId>todoapp-backend-dileep</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>todoapp-backend-akhil</name>
+	<name>todoapp-backend-dileep</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
